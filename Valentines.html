@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .buttons {
+            position: relative;
+            height: 120px;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        #yesBtn {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.3rem;
+        }
+
+        #noBtn {
+            background-color: #dc3545;
+            color: white;
+            padding: 15px 30px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Will you be my Valentine? ❤️</h1>
+    <div class="buttons">
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+    </div>
+</div>
+
+<script>
+    let yesScale = 1;
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("click", () => {
+        yesScale += 0.4;
+
+        yesBtn.style.transform = scale(${yesScale});
+
+        if (yesScale >= 6) {
+            yesBtn.style.position = "fixed";
+            yesBtn.style.top = "0";
+            yesBtn.style.left = "0";
+            yesBtn.style.width = "100vw";
+            yesBtn.style.height = "100vh";
+            yesBtn.style.borderRadius = "0";
+            yesBtn.style.fontSize = "3rem";
+            yesBtn.innerText = "YES 💖";
+            noBtn.style.display = "none";
+        }
+    });
+
+    yesBtn.addEventListener("click", () => {
+        document.body.innerHTML = `
+            <div style="
+                height:100vh;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                background:linear-gradient(135deg,#ff758c,#ff7eb3);
+                color:white;
+                font-size:3rem;
+                text-align:center;
+            ">
+                YAY!!! 💘💘💘<br>
+                Happy Valentine’s Day!
+            </div>
+        `;
+    });
+</script>
+
+</body>
+</html>
